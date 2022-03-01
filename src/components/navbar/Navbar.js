@@ -11,6 +11,7 @@ class Navbar extends HTMLElement {
                     z-index: 69;
                     position: fixed;
                     border-bottom: 1px solid rgba(0, 0, 0, .1);
+                    background: #fff;
                 }
                 .__navbar-container{
                     height: 58px;
@@ -32,6 +33,7 @@ class Navbar extends HTMLElement {
                     color: #000 !important;
                     text-decoration: none !important;
                     font-size: 14px;
+                    cursor: pointer;
                 }
                 .navbar-nav > li {
                     margin-left: 1rem;
@@ -79,6 +81,9 @@ class Navbar extends HTMLElement {
                 .__navbar-menu-right > li { 
                     margin-left: 1rem;
                 }
+                .search-dropdown{
+                    padding: 10px;
+                }
             </style>
             <header class="__navbar-wrapper"> 
                 <div class="__navbar-container"> 
@@ -119,7 +124,7 @@ class Navbar extends HTMLElement {
                                         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="bi bi-search"></i>
                                         </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <ul class="dropdown-menu search-dropdown" aria-labelledby="navbarDropdown">
                                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                         </ul>
                                     </li>
