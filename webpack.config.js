@@ -1,30 +1,36 @@
-const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: "./src/main.js",
-  output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
-  },
-  module: {
-    rules: [
-      {
-        enforce: "pre",
-        test: /.js$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader",
-      },
-      {
-        test: /.m?js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-              presets: ['@babel/preset-env']
-          }
+    module : {
+        rules : [
+            {
+                test: /\.html$/,
+                use: {
+                    loader: 'html-loader',
+                    options: {minimize: true}
+                }
+            },
+            {
+                test: /\.(png|svg|gif|jpg)$/,
+                use: {
+                    loader: 'html-loader',
+                    options: {minimize: true}
+                }
+            },
+            {
+                test: /\.scss$/,
+                use: ['css-loader','style-loader','sass-loader']
+            },
 
-        },
-      },
-    ],
-  },
-};
+        ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: './index.html'
+        }),
+        new CopyPlugin( [{ from: './src/views/*', to: './views' }]
+        )
+    ]
+}
