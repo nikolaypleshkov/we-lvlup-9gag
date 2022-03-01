@@ -1,6 +1,6 @@
-import {Router,Routes} from './libs/router.js'
-import Navbar from './components/Navbar/Navbar'
-
+import {Router,Routes} from './libs/router.js';
+import Navbar from './components/Navbar/Navbar';
+import Drawer from './components/Drawer/Drawer';
 (()=>{
     const routeConfig = [
         new Routes({
