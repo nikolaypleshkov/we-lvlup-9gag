@@ -1,7 +1,6 @@
-/* eslint-disable import/extensions */
-// eslint-disable-next-line import/extensions
-import 'bootstrap';
-import './assets/styles/main.scss';
+/* eslint-disable no-undef */
+import "bootstrap";
+import "./assets/styles/main.scss";
 // import './components/Navbar.js'
 const $ = require("jquery");
 
@@ -84,7 +83,7 @@ class Navbar extends HTMLElement {
                     </nav>
                 </div>
             </header>
-        `
+        `;
     }
 }
 
