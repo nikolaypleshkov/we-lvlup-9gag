@@ -1,36 +1,35 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
-    module : {
-        rules : [
+    entry: "./src/app.js",
+    output: {
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "dist"),
+    },
+    module:  {
+        rules: [
             {
-                test: /\.html$/,
-                use: {
-                    loader: 'html-loader',
-                    options: {minimize: true}
-                }
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                plugins: ["autoprefixer"],
+                            },
+                        },
+                    },
+                    "sass-loader",
+                ],
             },
-            {
-                test: /\.(png|svg|gif|jpg)$/,
-                use: {
-                    loader: 'html-loader',
-                    options: {minimize: true}
-                }
-            },
-            {
-                test: /\.scss$/,
-                use: ['css-loader','style-loader','sass-loader']
-            },
-
-        ]
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html',
-            filename: './index.html'
-        }),
-        new CopyPlugin( [{ from: './src/views/*', to: './views' }]
-        )
+            template: 'src/index.html'
+        })
     ]
-}
+};
