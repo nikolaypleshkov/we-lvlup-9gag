@@ -1,1 +1,34 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script><title>7GAG</title><script defer="defer" src="bundle.js"></script></head><body><header class="__navbar-wrapper"><div class="__navbar-container"><nav class="__navbar-menu"><a class="burger"><i class="bi bi-list"></i></a><ul class="navbar-nav"><li class="nav-item"><a class="logo">7GAG</a></li><li><a class="#">🔀 Shuffle</a></li><li><a class="#">📱 Get App</a></li><li><a class="#">🔞</a></li><li><a class="#">Donate</a></li><li><a class="#">🇺🇦</a></li><li><a class="#">Crypto</a></li><li><a class="#">ಠ_ಠ</a></li></ul><div class="d-flex __right-menu"><div class="__btn-group"><ul class="__navbar-menu-right"><li class="nav-item dropdown"><a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-search"></i></a><ul class="dropdown-menu search-dropdown" aria-labelledby="navbarDropdown"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></ul></li><li class="nav-item"><i class="bi bi-chat-right-fill"></i></li><li class="nav-item"><button class="btn __btn-secondary wave">Login</button></li><li class="nav-item"><button class="btn __btn-primary">Sing up</button></li><li class="nav-item dropdown"><a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-chevron-down"></i></a><ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a class="dropdown-item" href="#">Sign up or Login</a></li><li><a class="dropdown-item" href="#">Manage consent</a></li><li><a class="dropdown-item" href="#">Dark Mode</a></li><li><a class="dropdown-item" href="#">Download 9GAG app</a></li><li><a class="dropdown-item" href="#">Help center</a></li><li><a class="dropdown-item" href="#">Report problems</a></li></ul></li></ul></div></div></nav></div></header></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <title>7GAG</title>
+<script defer src="bundle.js"></script></head>
+<style>
+    #app {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<body>
+    <app-navbar></app-navbar>
+    <app-drawer></app-drawer>
+    <app-modal></app-modal>
+    <section id="app">
+    </section>
+
+</body>
+
+</html>
