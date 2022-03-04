@@ -50,7 +50,7 @@ class Navbar extends HTMLElement {
                                         <i class="bi bi-chat-right-fill"></i>
                                     </li>
                                      <li class="nav-item">
-                                        <button class="btn __btn-secondary wave">Login</button>
+                                        <button class="btn __btn-secondary wave" id="singInBtn" data-toggle="modal" data-target="#exampleModalCenter">Login</button>
                                     </li>
                                     <li class="nav-item">
                                         <button class="btn __btn-primary">Sing up</button>
@@ -75,7 +75,7 @@ class Navbar extends HTMLElement {
                     </nav>
                 </div>
             </header>
-        `
+        `;
     }
 }
 

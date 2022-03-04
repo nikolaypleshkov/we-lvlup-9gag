@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
@@ -25,11 +26,21 @@ module.exports = {
                     "sass-loader",
                 ],
             },
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["@babel/preset-env"]
+                    }
+                }
+            },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html'
+            template: "src/index.html"
         })
     ]
 };
