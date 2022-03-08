@@ -6,9 +6,9 @@ class Navbar extends HTMLElement {
             <header class="__navbar-wrapper">
                 <div class="__navbar-container">
                     <nav class="__navbar-menu">
-                        <button class="btn burger">
+                        <div class="btn burger">
                             <i class="bi bi-list"></i>
-                        </button>
+                        </div>
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="logo">7GAG</a>

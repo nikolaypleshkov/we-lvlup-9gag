@@ -25,7 +25,7 @@ class Navbar extends HTMLElement {
             </div>
             <div class="trending-container"> 
                 <ul class="trending-menu"> 
-                    <li class="nav-item"> 
+                    <li> 
                         <h6>&nbsp;&nbsp;&nbsp;7GAG</h6>
                     </li>
                     <li class="nav-item nav-sidebar">
@@ -37,8 +37,8 @@ class Navbar extends HTMLElement {
                             <i class="bi bi-three-dots"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Top Posts</a></li>
-                            <li><a class="dropdown-item" href="#">Most Recent</a></li>
+                            <li class="h-none"><a class="dropdown-item h-none" href="#">Top Posts</a></li>
+                            <li><a class="dropdown-item h-none" href="#">Most Recent</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"> 
