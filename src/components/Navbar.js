@@ -6,9 +6,9 @@ class Navbar extends HTMLElement {
             <header class="__navbar-wrapper">
                 <div class="__navbar-container">
                     <nav class="__navbar-menu">
-                        <a class="burger">
+                        <button class="btn burger">
                             <i class="bi bi-list"></i>
-                        </a>
+                        </button>
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="logo">7GAG</a>
@@ -50,10 +50,10 @@ class Navbar extends HTMLElement {
                                         <i class="bi bi-chat-right-fill"></i>
                                     </li>
                                      <li class="nav-item">
-                                        <button class="btn __btn-secondary wave" id="singInBtn" data-toggle="modal" data-target="#exampleModalCenter">Login</button>
+                                        <button class="btn __btn-secondary" id="signIn">Login</button>
                                     </li>
                                     <li class="nav-item">
-                                        <button class="btn __btn-primary">Sing up</button>
+                                        <button class="btn __btn-primary" id="signUp">Sign up</button>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
