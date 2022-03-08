@@ -1,9 +1,12 @@
 .drawer-wrapper {
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 290px;
   overflow-y: scroll;
   scrollbar-width: none;
+  transform: translateX(0px);
+  transition: 0.4s ease-in;
+  background-color: $primary-background-color;
 }
 .drawer-wrapper::-webkit-scrollbar {
   display: none;
@@ -12,7 +15,7 @@
   margin-top: 25%;
 }
 .__btn-primary {
-  background-color: #07f;
+  background-color: $secondary-background-color;
   color: #fff;
   font-weight: 700;
   border-radius: 30px;
@@ -22,7 +25,7 @@
   background-color: #016eeb;
 }
 .mini-card {
-  border: 1px solid #999;
+  border: 1px solid $light-font-color;
   border-radius: 10px;
   margin: 20px;
 }
@@ -40,7 +43,7 @@ span {
   text-align: center;
 }
 .trending-menu h6 {
-  color: #999;
+  color: $light-font-color;
 }
 .nav-sidebar {
   display: flex;
@@ -53,4 +56,24 @@ span {
 .trending-menu li {
   padding: 5px;
   cursor: pointer;
+}
+
+.drawer-active{
+  transform: translateX(-500px);
+  transition: 0.4s ease-in;
+  opacity: 0;
+}
+.navbar-drawer{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    align-items: center;
+}
+
+@media screen and (max-width: 500px){
+  .drawer-wrapper{
+    z-index: 1060;
+  }
 }
