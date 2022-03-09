@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { Router, Routes } from "./libs/router.js";
 import "./components/Components";
-import "./assets/scripts/app";
+import "./utils";
 
 $(document).ready(function(){
     if(window.location.hash === "") window.location.hash = "home";
