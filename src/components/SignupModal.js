@@ -27,36 +27,37 @@ class Modal extends HTMLElement {
         </div>
       </div>
       <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-    <div class="modal-header">
-      <button class="close btn" data-bs-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true"><i class="bi bi-x-lg"></i></span>
-      </button>
-      <h5 class="modal-title" id="exampleModalLongTitle">Sign up</h5>
-    </div>
-      <div class="modal-body"> <form class="mt-3"> 
-      <div class="form-group"> 
-        <input type="text" placeholder="Full name" class="form-control"/>
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close btn" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="bi bi-x-lg"></i></span>
+              </button>
+              <h5 class="modal-title" id="exampleModalLongTitle">Sign up</h5>
+            </div>
+            <div class="modal-body">
+              <form id="signupForm"> 
+                <div class="form-group"> 
+                  <input type="text" placeholder="Full name" class="form-control" id="fullName"/>
+                </div>
+                <div class="form-group mt-2"> 
+                  <input type="text" placeholder="Username or email address" class="form-control" id="username"/>
+                </div>
+                <div class="form-group mt-2"> 
+                  <input type="password" placeholder="Password" class="form-control" id="password"/>
+                </div>
+                <div class="form-group mt-2"> 
+                  <button class="btn __btn-primary w-100" type="submit">Sign up</button>
+                </div>
+              </form>
+              <div class="form-group mt-2"> 
+                <button class="btn w-100" data-bs-target="#exampleModalCenter" data-bs-toggle="modal" data-bs-dismiss="modal">Already a member? Log in</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group mt-2"> 
-        <input type="text" placeholder="Username or email address" class="form-control"/>
-      </div>
-      <div class="form-group mt-2"> 
-        <input type="password" placeholder="Password" class="form-control"/>
-      </div>
-      <div class="form-group mt-2"> 
-        <button class="btn __btn-primary w-100" type="submit">Sign up</button>
-      </div>
-      <div class="form-group mt-2"> 
-        <button class="btn w-100" type="submit" data-bs-target="#exampleModalCenter" data-bs-toggle="modal" data-bs-dismiss="modal">Already a member? Log in</button>
-      </div>
-    </form>
-      </div>
-    </div>
-  </div>
-</div>
-          `;
+    `;
   }
 }
 
