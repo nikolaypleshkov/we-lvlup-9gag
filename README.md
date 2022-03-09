@@ -44,7 +44,7 @@ Users of your 9GAG clone should be able to **authenticate**, scroll through a fe
 ### Usage
 * Run the project
 	```
-	npm run watch
+	npm run build
 	```
 ## License
 Distributed under the MIT License. See  `LICENSE.txt`  for more information.
