@@ -1,10 +1,12 @@
 import "regenerator-runtime/runtime";
 import "./components/Components";
+import Home from "./views/Home";
+import Post from "./views/Post";
+import Fresh from "./views/Fresh";
 import "./utils";
 import $ from "jquery"; 
 
 $(document).ready(function(){
-
     const navigateTo = (url) => {
       history.pushState(null, null, url);
       router();
@@ -13,15 +15,15 @@ $(document).ready(function(){
       const routes = [
         {
           path: "/",
-          view: () => console.log("View Home"),
+          view: Home,
         },
         {
           path: "#fresh",
-          view: () =>  console.log("View Fresh"),
+          view: Fresh,
         }, 
         {
           path: "#trending",
-          view: () =>  console.log("View Post")
+          view: Post
         }
     ];
 
@@ -33,15 +35,21 @@ $(document).ready(function(){
     });
 
     let match = routeMatches.find((routeMatch) => routeMatch.isMatch);
+    
     if(!match){
       match = {
         route: routes[0],
         isMatch: true
       };
     }
-    console.log(match.route.view());
+
+    const view = new match.route.view();
+
+    $("#app").html(await view.getHtml());
 
   };
+
+  $(window).bind("popstate", router)
 
   $(document).on("click",  function(e){
      if(e.target.matches("[data-link]")){
