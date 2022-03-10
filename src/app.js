@@ -1,30 +1,56 @@
-/* eslint-disable no-undef */
-import { Router, Routes } from "./libs/router.js";
+import "regenerator-runtime/runtime";
 import "./components/Components";
 import "./utils";
 
 $(document).ready(function(){
-    if(window.location.hash === "") window.location.hash = "home";
-    $("a").on("click", function(){
-        let hash = $(this).attr("href").split("#")[1];
-        window.location.hash = hash;
+
+    const navigateTo = (url) => {
+      history.pushState(null, null, url);
+      router();
+    }
+    const router = async () => {
+      const routes = [
+        {
+          path: "/",
+          view: () => console.log("View Home"),
+        },
+        {
+          path: "#fresh",
+          view: () =>  console.log("View Fresh"),
+        }, 
+        {
+          path: "#trending",
+          view: () =>  console.log("View Post")
+        }
+    ];
+
+    const routeMatches = routes.map((route) => {
+      return {
+        route: route,
+        isMatch: location.hash === route.path
+      }
     });
+
+    let match = routeMatches.find((routeMatch) => routeMatch.isMatch);
+    if(!match){
+      match = {
+        route: routes[0],
+        isMatch: true
+      }
+    }
+    console.log(match.route.view());
+
+  };
+
+  $(document).on("click",  function(e){
+     if(e.target.matches("[data-link]")){
+       e.preventDefault();
+       navigateTo(e.target.href);
+     }
+  })
+
+  router();
 });
 
-(() => {
-  const routeConfig = [
-    new Routes({
-      path: "fresh",
-      url: "./fresh.html",
-    }),
-    new Routes({
-        path: "trending",
-        url: "./trending.html"
-    }),
-    new Routes({
-        path: "home", 
-        url: "./home.html"
-    })
-  ];
-  new Router(routeConfig, "app");
-})();
+ 
+

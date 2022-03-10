@@ -43,11 +43,11 @@ class Navbar extends HTMLElement {
                     </li>
                     <li class="nav-item"> 
                         <i class="bi bi-graph-up-arrow"></i>
-                        <a href="#trending">Trending</a>
+                        <a href="/#trending" data-link>Trending</a>
                     </li>
                     <li class="nav-item"> 
                         <i class="bi bi-clock"></i>
-                        <a href="#fresh">Fresh</a>
+                        <a href="/#fresh" data-link>Fresh</a>
                     </li>
                     <li class="nav-item"> 
                         <i class="bi bi-bar-chart-line-fill"></i>
