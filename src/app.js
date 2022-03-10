@@ -1,13 +1,14 @@
 import "regenerator-runtime/runtime";
 import "./components/Components";
 import "./utils";
+import $ from "jquery"; 
 
 $(document).ready(function(){
 
     const navigateTo = (url) => {
       history.pushState(null, null, url);
       router();
-    }
+    };
     const router = async () => {
       const routes = [
         {
@@ -28,7 +29,7 @@ $(document).ready(function(){
       return {
         route: route,
         isMatch: location.hash === route.path
-      }
+      };
     });
 
     let match = routeMatches.find((routeMatch) => routeMatch.isMatch);
@@ -36,7 +37,7 @@ $(document).ready(function(){
       match = {
         route: routes[0],
         isMatch: true
-      }
+      };
     }
     console.log(match.route.view());
 
@@ -47,7 +48,7 @@ $(document).ready(function(){
        e.preventDefault();
        navigateTo(e.target.href);
      }
-  })
+  });
 
   router();
 });
