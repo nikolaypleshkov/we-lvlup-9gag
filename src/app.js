@@ -49,7 +49,7 @@ $(document).ready(function(){
 
   };
 
-  $(window).bind("popstate", router)
+  $(window).bind("popstate", router);
 
   $(document).on("click",  function(e){
      if(e.target.matches("[data-link]")){
