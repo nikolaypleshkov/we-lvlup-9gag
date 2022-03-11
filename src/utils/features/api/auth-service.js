@@ -1,6 +1,5 @@
-import { getFirestore } from 'firebase/firestore/lite';
-import { app } from '../firebase';
-const db = getFirestore(app);
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 async function signIn(email, password){
 
 }
