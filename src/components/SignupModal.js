@@ -42,6 +42,9 @@ class Modal extends HTMLElement {
                 </div>
                 <div class="form-group mt-2"> 
                   <input type="text" placeholder="Username or email address" class="form-control" id="username"/>
+                  <div class="alert alert-danger mt-2" id="danger-email">
+                    <span>Enter Valid Email</span>
+                  </div>
                 </div>
                 <div class="form-group mt-2"> 
                   <input type="password" placeholder="Password" class="form-control" id="password"/>
