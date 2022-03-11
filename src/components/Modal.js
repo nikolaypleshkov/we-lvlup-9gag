@@ -17,20 +17,23 @@ class Modal extends HTMLElement {
             <div class="splitter"> 
               <span>or</span>
             </div>
-            <form class="mt-3"> 
+            <form class="mt-3" id="signinForm"> 
               <div class="form-group"> 
-                <input type="text" placeholder="Username or email address" class="form-control"/>
+                <input type="text" placeholder="Username or email address" class="form-control" id="signEmail"/>
+                <div class="alert alert-danger mt-2" id="error-email"> 
+                  <span>Enter Valid Email</span>
+                </div>
               </div>
               <div class="form-group mt-2"> 
-                <input type="password" placeholder="Password" class="form-control"/>
+                <input type="password" placeholder="Password" class="form-control" id="signPassword"/>
               </div>
               <div class="form-group mt-2"> 
                 <button class="btn __btn-primary w-100" type="submit">Log in</button>
               </div>
-              <div class="form-group mt-2"> 
-                <button class="btn w-100" type="submit">Forgot password?</button>
-              </div>
             </form>
+            <div class="form-group mt-2"> 
+              <button class="btn w-100" type="submit">Forgot password?</button>
+            </div>
           </div>
         </div>
       </div>

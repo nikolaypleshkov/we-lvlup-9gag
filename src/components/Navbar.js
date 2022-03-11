@@ -26,12 +26,6 @@ class Navbar extends HTMLElement {
                                 <a class="#">Donate</a>
                             </li>
                             <li>
-                                <a class="#">🇺🇦</a>
-                            </li>
-                            <li>
-                                <a class="#">Crypto</a>
-                            </li>
-                            <li>
                                 <a class="#">ಠ_ಠ</a>
                             </li>
                         </ul>
