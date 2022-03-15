@@ -4,6 +4,23 @@ $(document).ready(function () {
   const signUp = $("#signUp");
   const burger = $(".burger");
   const drawer = $(".drawer-wrapper");
+  const isAuth = localStorage.getItem("Authenticated");
+  if(isAuth){
+    $("#isNotAuth").remove();
+    $("#accountState").text("Account");
+    $("#navItemDropdown").append(/*html*/ `
+      <li id="logoutBtn"><a class="dropdown-item" href="#">Logout</a></li>
+    `);
+  }
+  else {
+    // alert("User is not logged in");
+  }
+  $(document).on("click", "#logoutBtn", function(){
+    localStorage.removeItem("Authenticated");
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    location.reload();
+  });
   $(signIn).on("click", function () {
     $("#exampleModalCenter").modal("show");
   });
