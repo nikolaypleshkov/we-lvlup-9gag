@@ -1,33 +1,25 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "../features/firebase";
+/* eslint-disable no-unused-vars */
+import { signInWithEmail, signInWithGoogle } from "../features/api/auth-service";
+import $ from "jquery";
 $(document).ready(function () {
   const form = $("#signinForm");
+  const googleSign = $("#googleSignIn");
   const email = $("#signEmail");
   const password = $("#signPassword");
   const dangerAlert = $("#error-email");
   $(dangerAlert).hide();
-  $(email).on("change", function(){
+  $(email).on("change", function () {
     //   valdiateEmail();
   });
 
-  $(password).on("blur", function(){
+  $(password).on("blur", function () {
     //   validatePassword();
+  });
+  $(googleSign).on("click", function () {
+    signInWithGoogle();
   });
   $(form).on("submit", async function (e) {
     e.preventDefault();
-    const auth = getAuth(app);
-    console.log($(email).val());
-    console.log($(password).val());
-    signInWithEmailAndPassword(auth, $(email).val(), $(password).val())
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        localStorage.setItem("user", user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(error);
-      });
+    signInWithEmail($(email).val(), $(password).val());
   });
 });

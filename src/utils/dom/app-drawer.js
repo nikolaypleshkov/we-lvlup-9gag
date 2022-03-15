@@ -1,6 +1,11 @@
 /* eslint-disable no-undef */
 $(document).ready(function () {
   const signUp = $("#signUpDrawer");
+  const isAuth = localStorage.getItem("Authenticated");
+
+  if(isAuth){
+    $(".mini-card").remove(); 
+  }
   // eslint-disable-next-line no-unused-vars
   const drawer = $(".drawer-wrapper");
   var $window = $(window);

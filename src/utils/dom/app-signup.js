@@ -1,5 +1,7 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
+/* eslint-disable no-useless-escape */
+// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signUpWithEmail } from "../features/api/auth-service";
+import $ from "jquery";
 $(document).ready(function () {
   const form = $("#signupForm");
   const fullName = $("#fullName");
@@ -40,20 +42,6 @@ $(document).ready(function () {
   }
   $(form).on("submit", (e) => {
     e.preventDefault();
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, $(email), $(password)).then(
-      (userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-
-        localStorage.setItem(user);
-      }
-    ).catch((err) => {
-        const errorCode = err.code;
-        const errorMessage = err.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-    });
-    alert("Sign up form submited");
+    signUpWithEmail($(email).val(), $(password).val());
   });
 });
