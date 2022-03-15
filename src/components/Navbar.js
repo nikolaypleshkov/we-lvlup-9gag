@@ -43,26 +43,26 @@ class Navbar extends HTMLElement {
                                     <li class="nav-item">
                                         <i class="bi bi-chat-right-fill"></i>
                                     </li>
-                                     <li class="nav-item">
-                                        <button class="btn __btn-secondary" id="signIn">Login</button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button class="btn __btn-primary" id="signUp">Sign up</button>
-                                    </li>
+                                    <div class="nav-item d-flex w-100" id="isNotAuth">
+                                        <li class="nav-item">
+                                            <button class="btn __btn-secondary" id="signIn">Login</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="btn __btn-primary" id="signUp">Sign up</button>
+                                        </li>
+                                    </div>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                             <i class="bi bi-chevron-down"></i>
+                                            <i class="bi bi-chevron-down"></i>
                                         </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="#">Sign up or Login</a></li>
-                                             <li><a class="dropdown-item" href="#">Manage consent</a></li>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navItemDropdown">
+                                            <li><a class="dropdown-item" href="#" id="accountState">Sign up or Login</a></li>
+                                            <li><a class="dropdown-item" href="#">Manage consent</a></li>
                                             <li><a class="dropdown-item" href="#">Dark Mode</a></li>
                                             <li><a class="dropdown-item" href="#">Download 9GAG app</a></li>
-                                            <li><a class="dropdown-item" href="#">Help center</a></li>
-                                            <li><a class="dropdown-item" href="#">Report problems</a></li>
-                                        </ul>
-        
-                                    </li>
+                                            <li><a class="dropdown-item" href="#">Help center</a></li>navItemDropdown
+                                        </ul> 
+                                    </li>  
                                 </ul>
                              </div>
                         </div>
