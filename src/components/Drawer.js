@@ -20,7 +20,7 @@ class Navbar extends HTMLElement {
                     <h2>New to 7GAG?</h2>
                     <span class="info-text">Sign up now to see more content!</span>
                     <br />
-                    <button class="btn __btn-primary" id="signUpDrawer">Sing up</button>
+                    <button class="btn __btn-primary" id="signUpDrawer">Sign up</button>
                 </div>
             </div>
             <div class="trending-container"> 
