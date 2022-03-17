@@ -5,17 +5,27 @@ $(document).ready(function () {
   const burger = $(".burger");
   const drawer = $(".drawer-wrapper");
   const isAuth = localStorage.getItem("Authenticated");
-  if(isAuth){
+
+  if (isAuth) {
     $("#isNotAuth").remove();
     $("#accountState").text("Account");
     $("#navItemDropdown").append(/*html*/ `
       <li id="logoutBtn"><a class="dropdown-item" href="#">Logout</a></li>
     `);
-  }
-  else {
+    $("#navbarMenu").append(/*html*/ `
+      <button class="btn __btn-primary" id="uploadBtn">+ Upload</button>
+    `);
+  } else {
     // alert("User is not logged in");
   }
-  $(document).on("click", "#logoutBtn", function(){
+  $(document).on("click", "#uploadBtn", function () {
+    // alert("Upload modal");
+    $("#uploadModal").modal("show");
+    $("#fileInput").show();
+    $(".files").removeClass("remove-after");
+    $("#postGroup").remove();
+  });
+  $(document).on("click", "#logoutBtn", function () {
     localStorage.removeItem("Authenticated");
     localStorage.removeItem("user");
     localStorage.removeItem("token");
