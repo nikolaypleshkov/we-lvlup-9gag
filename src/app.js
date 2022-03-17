@@ -1,10 +1,13 @@
+/* eslint-disable no-undef */
 import "regenerator-runtime/runtime";
 import "./components/Components";
+import "./assets/vendors/giftplayer/jquery.gifplayer";
 import Home from "./views/Home";
 import Post from "./views/Post";
 import Fresh from "./views/Fresh";
-import "./utils";
-import $ from "jquery"; 
+import "./utils";  
+
+import Upload from "./views/Upload";
 
 $(document).ready(function(){
     const navigateTo = (url) => {
@@ -16,14 +19,22 @@ $(document).ready(function(){
         {
           path: "/",
           view: Home,
+          needAuth: false
         },
         {
           path: "#fresh",
           view: Fresh,
+          needAuth: false
         }, 
         {
           path: "#trending",
-          view: Post
+          view: Post,
+          needAuth: false
+        },
+        {
+          path: "#upload",
+          view: Upload,
+          needAuth: true
         }
     ];
 
@@ -35,16 +46,15 @@ $(document).ready(function(){
     });
 
     let match = routeMatches.find((routeMatch) => routeMatch.isMatch);
-    
     if(!match){
       match = {
         route: routes[0],
         isMatch: true
       };
     }
+    
 
     const view = new match.route.view();
-
     $("#app").html(await view.getHtml());
 
   };
