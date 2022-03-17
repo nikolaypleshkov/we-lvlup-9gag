@@ -15,7 +15,7 @@ export async function signInWithEmail(email, password) {
       const token = user.accessToken;
       localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("Authenticated", true);
-      localStorage.setItem("token", token);
+      localStorage.setItem("token", user.uid);
       console.log(user);
     })
     .then(() => {
@@ -34,7 +34,7 @@ export async function signInWithGoogle() {
     const user = result.user;
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("Authenticated", true);
-    localStorage.setItem("token", token);
+    localStorage.setItem("token", user.uid);
   })
   .then(() => {
       location.reload();
