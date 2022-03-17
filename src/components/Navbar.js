@@ -31,7 +31,7 @@ class Navbar extends HTMLElement {
                         </ul>
                         <div class="d-flex __right-menu">
                             <div class="__btn-group">
-                                <ul class="__navbar-menu-right">
+                                <ul class="__navbar-menu-right" id="navbarMenu">
                                     <li class="nav-item dropdown">
                                         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                              <i class="bi bi-search"></i>
@@ -57,10 +57,9 @@ class Navbar extends HTMLElement {
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navItemDropdown">
                                             <li><a class="dropdown-item" href="#" id="accountState">Sign up or Login</a></li>
-                                            <li><a class="dropdown-item" href="#">Manage consent</a></li>
+                                            <li><a class="dropdown-item" data-link href="/#upload">Upload Meme</a></li>
                                             <li><a class="dropdown-item" href="#">Dark Mode</a></li>
                                             <li><a class="dropdown-item" href="#">Download 9GAG app</a></li>
-                                            <li><a class="dropdown-item" href="#">Help center</a></li>navItemDropdown
                                         </ul> 
                                     </li>  
                                 </ul>
