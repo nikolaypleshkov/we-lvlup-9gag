@@ -8,7 +8,8 @@ export default class extends AbstractView{
 
     async getHtml(){
         return /*html*/`
-            <h1>Home View</h1>
+            <div id="memeContainer"> 
+            </div>
         `;
     }
 }
