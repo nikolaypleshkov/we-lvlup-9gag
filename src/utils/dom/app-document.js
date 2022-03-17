@@ -1,6 +1,6 @@
 import $ from "jquery";
 import axios from "axios";
-$(document).ready(async function () {
+$(document).ready( function () {
   var toBottom = false;
   for (let i = 0, len = 10; i < len; i++) {
     axios
@@ -14,7 +14,7 @@ $(document).ready(async function () {
             <div class="memeCard"> 
                 <header>${res.data.data.title}</header>
                 <div class="memeContent"> 
-                    <img src="${res.data.data.images.downsized_large.url}" alt="meme" />
+                    <img class="giftplayer" data-src src="${res.data.data.images.downsized_large.url}" alt="meme" />
                 </div>
                 <div class="button-container"> 
                     <button class="btn" id="upVote"><svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="#999" viewBox="0 0 24 24"><path d="M4 14h4v7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7h4a1.001 1.001 0 0 0 .781-1.625l-8-10c-.381-.475-1.181-.475-1.562 0l-8 10A1.001 1.001 0 0 0 4 14z"/></svg></button>
@@ -35,5 +35,9 @@ $(document).ready(async function () {
         //TODO: Make call to giphy to fetch memes
       }
     }
+  });
+
+  $(document).ready(function(){
+    $(".giftplayer").giftplayer();
   });
 });
