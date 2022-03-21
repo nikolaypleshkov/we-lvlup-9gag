@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 import { db } from "../features/firebase";
 import { addDoc, collection } from "firebase/firestore";
-import { postMeme } from "../features/api/app-service"
+import { postMeme } from "../features/api/app-service";
 $(document).ready(async function () {
   let base64Image;
   $("#fileInput").on("change", function () {
@@ -11,7 +11,6 @@ $(document).ready(async function () {
     // console.log(image);
     const reader = new FileReader();
     reader.readAsDataURL(file);
-
     reader.onload = function () {
       base64Image = reader.result;
       $("#fileInput").hide();
@@ -41,22 +40,13 @@ $(document).ready(async function () {
   $("#submitPost").on("click", async function () {
     const postTitle = $("#postTitle").val();
     const postDescription = $("#postDescription").val();
-    const data = {
-        img: base64Image,
-        title: postTitle,
-        description: postDescription,
-        likes: 0,
-        comments: [],
-        createdByUser: localStorage.getItem("token"),
-        createdOn: Date().now
-    };
-
     try {
       const docRef = await addDoc(collection(db, "post"), {
         img: base64Image,
         title: postTitle,
         description: postDescription,
         likes: 0,
+        dislikes: 0,
         comments: [],
         createdOn: new Date().toLocaleDateString(),
         createdByUser: localStorage.getItem("token")
@@ -66,6 +56,7 @@ $(document).ready(async function () {
       }, 500);
     } catch (e) {
       alert("Something went wrong: ", e);
+      console.log(e);
     }
   });
 });

@@ -9,6 +9,7 @@ export async function postMeme(data) {
       title: data.title,
       description: data.description,
       likes: data.likes,
+      dislikes: data.dislikes,
       comments: data.comment,
       createdByUser: data.createdByUser,
       createdOn: data.createdOn,
