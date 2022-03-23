@@ -1,7 +1,15 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import { db } from "../firebase";
-import { addDoc, collection } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  query,
+  orderBy,
+  getDocs,
+  getDoc,
+  doc,
+} from "firebase/firestore";
 export async function postMeme(data) {
   try {
     const docRef = await addDoc(collection(db, "post"), {
@@ -25,3 +33,12 @@ async function viewMeme(id) {}
 async function upvoteMeme(id) {}
 async function downvoteMeme(id) {}
 async function commentMeme(id, comment) {}
+export async function trendingMeme() {
+  // const postRef = await collection(db, "post");
+  const postRef = collection(db, "post");
+  const docRef = query(postRef, orderBy("likes", "desc"));
+  const docSnapshot = await getDocs(docRef);
+  return docSnapshot;
+  // console.log("Most Likes");
+  // console.log(postRef);
+}
