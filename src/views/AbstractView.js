@@ -12,4 +12,10 @@ export default class {
             
         `;
     }
+    getColor(data) {
+        const userId = localStorage.getItem("token");
+        const isLiked = data.includes(userId);
+        if(isLiked) return "red";
+        return "#999";
+     }
 }
