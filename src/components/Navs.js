@@ -1,14 +1,14 @@
 class Navs extends HTMLElement{
     connectedCallback(){
         this.innerHTML = /*html*/`
-            <nav class="fixed-top">
-                <ul class="navmenu"> 
-                    <li class="nav-btn">Hot</li>
-                    <li class="nav-btn">Trending</li>
-                    <li class="nav-btn">Fresh</li>
-                    <li class="nav-btn">Top</li>
-                </ul> 
-            </nav>
+        <nav class="fixed-top mini-nav">
+            <div class="navmenu-container"> 
+                <a data-link href="/#home" class="nav-btn selected">Hot</a>
+                <a data-link href="/#trending" class="nav-btn">Trending</a>
+                <a data-link href="/#fresh" class="nav-btn">Fresh</a>
+                <a data-link href="/#top" class="nav-btn">Top</a>
+            </div> 
+        </nav>
         `;
     }
 }
