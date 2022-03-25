@@ -35,10 +35,16 @@ class Modal extends HTMLElement {
               </button>
               <h5 class="modal-title" id="exampleModalLongTitle">Sign up</h5>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="signUpBody">
+            <div class="alert alert-danger mt-2" id="danger-credit">
+              <span>Please enter valid credentials.</span>
+            </div>
               <form id="signupForm"> 
                 <div class="form-group"> 
-                  <input type="text" placeholder="Full name" class="form-control" id="fullName"/>
+                  <input type="text" placeholder="Username" class="form-control" id="fullName"/>
+                  <div class="alert alert-danger mt-2" id="danger-username">
+                    <span>Username must be at least 3 characters long.</span>
+                  </div>
                 </div>
                 <div class="form-group mt-2"> 
                   <input type="text" placeholder="Username or email address" class="form-control" id="username"/>
@@ -48,6 +54,9 @@ class Modal extends HTMLElement {
                 </div>
                 <div class="form-group mt-2"> 
                   <input type="password" placeholder="Password" class="form-control" id="password"/>
+                  <div class="alert alert-danger mt-2" id="danger-password">
+                    <span>Password Length must be at least 6 characters long.</span>
+                  </div>
                 </div>
                 <div class="form-group mt-2"> 
                   <button class="btn __btn-primary w-100" type="submit">Sign up</button>
