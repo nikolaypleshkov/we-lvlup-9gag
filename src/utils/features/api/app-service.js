@@ -39,6 +39,11 @@ export async function trendingMeme() {
   const docRef = query(postRef, orderBy("likes", "desc"));
   const docSnapshot = await getDocs(docRef);
   return docSnapshot;
-  // console.log("Most Likes");
-  // console.log(postRef);
+}
+export async function freshMemes(){
+  const postRef = collection(db, "post");
+  const docRef = query(postRef, orderBy("createdOn", "desc"));
+  const docSnapshot = await getDocs(docRef);
+
+  return docSnapshot;
 }
