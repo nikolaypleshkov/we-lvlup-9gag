@@ -27,9 +27,6 @@
     font-size: 14px;
     cursor: pointer;
   }
-  .navbar-nav > li {
-    margin-left: 1rem;
-  }
   .__btn-primary {
     background-color: #07f;
     color: #fff;
@@ -76,6 +73,10 @@
   }
   .search-dropdown {
     padding: 10px;
+  }
+  .profile-picture-link{
+    border-radius: 50%;
+    height: 40px;
   }
   // $breakpoints: (
   //   p1: "max-width: 900px",
