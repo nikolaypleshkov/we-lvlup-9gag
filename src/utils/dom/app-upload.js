@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import { db } from "../features/firebase";
-import { addDoc, collection } from "firebase/firestore";
-import { postMeme } from "../features/api/app-service";
+import { addDoc, collection, doc, setDoc, updateDoc, Timestamp } from "firebase/firestore";
+// import { postMeme } from "../features/api/app-service";
 $(document).ready(async function () {
   let base64Image;
   $("#fileInput").on("change", function () {
@@ -40,6 +40,11 @@ $(document).ready(async function () {
   $("#submitPost").on("click", async function () {
     const postTitle = $("#postTitle").val();
     const postDescription = $("#postDescription").val();
+    let currentDocId = "";
+
+    console.log("user");
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
     try {
       const docRef = await addDoc(collection(db, "post"), {
         img: base64Image,
@@ -48,11 +53,18 @@ $(document).ready(async function () {
         likes: 0,
         dislikes: 0,
         comments: [],
-        createdOn: new Date().toLocaleDateString(),
-        createdByUser: localStorage.getItem("token")
+        createdOn: Timestamp.fromDate(new Date()),
+        likesID: [],
+        createdByUser: {
+          uid: user.uid,
+          displayName: user.displayName,
+          photoURL: user.photoURL
+        }
       });
+      currentDocId = docRef.id;
       setTimeout(() => {
         $("#uploadModal").modal("hide");
+        location.reload();
       }, 500);
     } catch (e) {
       alert("Something went wrong: ", e);
