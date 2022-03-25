@@ -11,7 +11,7 @@ class Navbar extends HTMLElement {
                         </div>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="logo">7GAG</a>
+                                <a class="logo" data-link href="/#home">7GAG</a>
                             </li>
                             <li>
                                  <a class="#">🔀  Shuffle</a>
@@ -43,17 +43,13 @@ class Navbar extends HTMLElement {
                                     <li class="nav-item">
                                         <i class="bi bi-chat-right-fill"></i>
                                     </li>
-                                    <div class="nav-item d-flex w-100" id="isNotAuth">
-                                        <li class="nav-item">
+                                    <li class="nav-item d-flex" id="isNotAuth">
                                             <button class="btn __btn-secondary" id="signIn">Login</button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="btn __btn-primary" id="signUp">Sign up</button>
-                                        </li>
-                                    </div>
+                                            <button class="btn __btn-primary" id="signUp">Sign up</button> 
+                                    </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bi bi-chevron-down"></i>
+                                        ${localStorage.getItem("user") ? `<img class="profile-picture-link" src="${JSON.parse(localStorage.getItem("user")).photoURL}"/>` : "<i class=\"bi bi-chevron-down\"></i>" }
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navItemDropdown">
                                             <li><a class="dropdown-item" href="#" id="accountState">Sign up or Login</a></li>
