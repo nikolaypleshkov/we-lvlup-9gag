@@ -3,13 +3,22 @@ import "regenerator-runtime/runtime";
 import "./components/Components";
 import "./assets/vendors/giftplayer/jquery.gifplayer";
 import Home from "./views/Home";
-import Post from "./views/Post";
+// import Post from "./views/Post";
 import Fresh from "./views/Fresh";
 import "./utils";  
-
 import Upload from "./views/Upload";
+import Trending from "./views/Trending";
+import Post from "./views/Post";
 
 $(document).ready(function(){
+  $(document).on("click", "#getId", function(){
+    const postId = $(this).parent().attr("data-eid");
+    localStorage.setItem("postId", postId);
+  });
+  $(document).on("click", "#getIdImg", function(){
+    const postId = $(this).parent().parent().attr("data-eid");
+    localStorage.setItem("postId", postId);
+  });
     const navigateTo = (url) => {
       history.pushState(null, null, url);
       router();
@@ -17,7 +26,7 @@ $(document).ready(function(){
     const router = async () => {
       const routes = [
         {
-          path: "/",
+          path: "#home",
           view: Home,
           needAuth: false
         },
@@ -28,12 +37,17 @@ $(document).ready(function(){
         }, 
         {
           path: "#trending",
-          view: Post,
+          view: Trending,
           needAuth: false
         },
         {
           path: "#upload",
           view: Upload,
+          needAuth: true
+        },
+        {
+          path: "#post",
+          view: Post,
           needAuth: true
         }
     ];
@@ -52,10 +66,8 @@ $(document).ready(function(){
         isMatch: true
       };
     }
-    
-
     const view = new match.route.view();
-    $("#app").html(await view.getHtml());
+    await view.getHtml();
 
   };
 
