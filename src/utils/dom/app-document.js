@@ -26,20 +26,27 @@ $(document).ready(async function () {
     const isAuth = localStorage.getItem("Authenticated");
     if (isAuth) {
       const button = $(this);
+      const downVoteButton = $(this).parent().children("#downVote");
       const elementId = $(this).parent().parent().attr("data-eid");
       const btnSVG = $(this).children("svg");
       let btnValue = $(this).children(".upvotes-info").children("#likesNumber");
       const likeRef = doc(db, "post", elementId);
       const docRef = await getDoc(likeRef);
       let likesID = docRef.get("likesID");
+      let dislikesID = docRef.get("dislikesID");
       let isLiked = false;
+      let isDisliked = false;
       const currentUserId = localStorage.getItem("token");
       if(likesID.length > 0){
         likesID.forEach((id) => {
            if(id == currentUserId) isLiked = true;
         });
       }
-
+      if(dislikesID.length > 0){
+        dislikesID.forEach((id) => {
+          if(id == currentUserId) isDisliked = true;
+        });
+      }
       if(isLiked){
         likesID = likesID.filter((id) => {
           return id != currentUserId;
@@ -50,6 +57,15 @@ $(document).ready(async function () {
         $(btnValue).text(likesID.length);
       }
       else{
+        if(isDisliked){
+          dislikesID = dislikesID.filter((id) => {
+          return id != currentUserId;
+        });
+        await setDoc(likeRef, {dislikes: dislikesID.length,  dislikesID: dislikesID }, { merge: true });
+        $(downVoteButton).css("background", "#fff");
+        $(downVoteButton).children("svg").attr("fill", "#999");
+        $(downVoteButton).children(".downvotes-info").children("span").text(dislikesID.length);
+        }
         likesID.push(currentUserId);
         await setDoc(likeRef, { likes: likesID.length, likesID: likesID }, { merge: true });
         $(button).css("background", "rgba(222, 222, 254, 0.72)");
@@ -67,25 +83,58 @@ $(document).ready(async function () {
     if(isAuth){    
       const elementId = $(this).parent().parent().attr("data-eid");
       const upVoteButton = $(this).parent().children("#upVote");
+      const downVoteButton = $(this);
+      const btnSvg = $(this).children("svg");
+      let btnValue = $(this).children(".downvotes-info").children("span");
       console.log(elementId);
       const likeRef = doc(db, "post", elementId);
       const docRef = await getDoc(likeRef);
       let likesID = docRef.get("likesID");
+      let dislikesID = docRef.get("dislikesID");
       let isLiked = false;
+      let isDisliked = false;
       const currentUserId = localStorage.getItem("token");
       if(likesID.length > 0){
         likesID.forEach((id) => {
            if(id == currentUserId) isLiked = true;
         });
       }
+      if(dislikesID.length > 0){
+        dislikesID.forEach((id) => {
+          if(id == currentUserId) isDisliked = true;
+        });
+      }
       if(isLiked){
         likesID = likesID.filter((id) => {
           return id != currentUserId;
         });
+        dislikesID.push(currentUserId );
         await setDoc(likeRef, {likes: likesID.length,  likesID: likesID }, { merge: true });
         $(upVoteButton).css("background", "#fff");
         $(upVoteButton).children("svg").attr("fill", "#999");
         $(upVoteButton).children(".upvotes-info").children("#likesNumber").text(likesID.length);
+        await setDoc(likeRef, {dislikes: dislikesID.length,  dislikesID: dislikesID }, { merge: true });
+        $(downVoteButton).css("background", "rgb(255, 153, 153)");
+        $(btnSvg).attr("fill", "red");
+        $(btnValue).text(dislikesID.length);
+      }
+      else {
+        if(isDisliked){
+          dislikesID = dislikesID.filter((id) => {
+            return id != currentUserId;
+          });
+          await setDoc(likeRef, {dislikes: dislikesID.length,  dislikesID: dislikesID }, { merge: true });
+          $(downVoteButton).css("background", "#fff");
+          $(btnSvg).attr("fill", "#999");
+          $(btnValue).text(dislikesID.length);
+        }
+        else {
+          dislikesID.push(currentUserId);
+          await setDoc(likeRef, {dislikes: dislikesID.length,  dislikesID: dislikesID }, { merge: true });
+          $(downVoteButton).css("background", "rgb(255, 153, 153)");
+          $(btnSvg).attr("fill", "red");
+          $(btnValue).text(dislikesID.length);
+        }
       }
     }
     else {
