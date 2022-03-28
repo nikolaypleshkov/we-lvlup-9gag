@@ -43,8 +43,8 @@ export default class {
                   }</span>
                 </div>
                 </button>
-              <button class="btn post-btn d-flex align-items-center" id="downVote">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="#999" viewBox="0 0 24 24"><path d="M20.901 10.566A1.001 1.001 0 0 0 20 10h-4V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v7H4a1.001 1.001 0 0 0-.781 1.625l8 10a1 1 0 0 0 1.562 0l8-10c.24-.301.286-.712.12-1.059z"/></svg>
+              <button class="btn post-btn d-flex align-items-center" id="downVote" style="${data.data().dislikesID.includes(localStorage.getItem("token")) ? "background: rgb(255, 153, 153);" : "background: #fff}"}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="${data.data().dislikesID.includes(localStorage.getItem("token")) ? "red" : "#999"}"  viewBox="0 0 24 24"><path d="M20.901 10.566A1.001 1.001 0 0 0 20 10h-4V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v7H4a1.001 1.001 0 0 0-.781 1.625l8 10a1 1 0 0 0 1.562 0l8-10c.24-.301.286-.712.12-1.059z"/></svg>
                 <div class="downvotes-info"> 
                   <span class="text-muted">${data.data().dislikes}</span>
                 </div>
