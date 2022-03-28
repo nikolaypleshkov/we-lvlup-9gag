@@ -9,6 +9,7 @@ import {
   getDocs,
   getDoc,
   doc,
+  setDoc,
 } from "firebase/firestore";
 export async function postMeme(data) {
   try {
@@ -32,7 +33,17 @@ export async function postMeme(data) {
 async function viewMeme(id) {}
 async function upvoteMeme(id) {}
 async function downvoteMeme(id) {}
-async function commentMeme(id, comment) {}
+export async function commentMeme(postId, comment, user) {
+  const commentsRef = doc(db, "post", postId);
+  const docRef = await getDoc(commentsRef);
+  const comments = docRef.get("comments");
+  comments.push({
+    user: user,
+    comment: comment
+  });
+
+  await setDoc(commentsRef, {comments: comments}, {merge: true});
+}
 export async function trendingMeme() {
   // const postRef = await collection(db, "post");
   const postRef = collection(db, "post");
