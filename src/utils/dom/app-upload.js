@@ -55,6 +55,7 @@ $(document).ready(async function () {
         comments: [],
         createdOn: Timestamp.fromDate(new Date()),
         likesID: [],
+        dislikesID:[],
         createdByUser: {
           uid: user.uid,
           displayName: user.displayName,
