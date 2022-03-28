@@ -137,3 +137,16 @@ ul {
         height: auto;
     }
 }
+.comment-card-wrapper{
+  &:hover{
+    background: rgba(206, 206, 206, 0.405);
+  }
+}
+.comment-card-wrapper{
+  padding: 10px;
+}
+.user-profile-avatar{
+  img{
+    border-radius: 50%;
+  }
+}
