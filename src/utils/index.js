@@ -5,4 +5,5 @@ import "./dom/app-signup";
 import "./dom/app-signin";
 import "./dom/app-document";
 import "./dom/app-upload";
+import "./dom/app-posts";
 import "./features/firebase";
