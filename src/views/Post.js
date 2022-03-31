@@ -71,17 +71,17 @@ export default class extends AbstractView {
             </section>
             <footer class="comments-section-footer"> 
                 <section class="comments-action-area"> 
-                    <button class="btn text-muted">Cancel</button>
+                    <button class="btn text-muted" id="clearComment">Cancel</button>
                     <button class="btn btn-primary" id="postButton">Post</button>
                 </section>
             </footer>
       </section>
       <section class="comments-list-container" id="commentsContainer"> 
       ${data.data().comments.map((comment) => {
-        return /*html*/ `
+        return (/*html*/ `
         <div class="comment-card-wrapper"> 
         <div class="user-profile-avatar d-flex mt-2"> 
-          <img src="${
+          <img no-referrer src="${
            comment.user.photoURL
             }" height="25px" width="25px" />
             <p class="owner-info text-muted"> 
@@ -109,10 +109,8 @@ export default class extends AbstractView {
           </footer>
         </div>
       </div>
-        
-        `;
+        `);
       })}
-        
       </section>
     `);
   }
