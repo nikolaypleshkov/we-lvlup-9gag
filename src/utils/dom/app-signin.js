@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { signInWithEmail, signInWithGoogle } from "../features/api/auth-service";
+import { signInWithEmail, signInWithGoogle, signInWithFacebook } from "../features/api/auth-service";
 import $ from "jquery";
 $(document).ready(function () {
   const form = $("#signinForm");
   const googleSign = $("#googleSignIn");
+  const facebookSign = $("#facebookSignIn");
   const email = $("#signEmail");
   const password = $("#signPassword");
   const dangerAlert = $("#error-email");
@@ -14,6 +15,9 @@ $(document).ready(function () {
 
   $(password).on("blur", function () {
     //   validatePassword();
+  });
+  $(facebookSign).on("click", function(){
+    signInWithFacebook();
   });
   $(googleSign).on("click", function () {
     signInWithGoogle();
