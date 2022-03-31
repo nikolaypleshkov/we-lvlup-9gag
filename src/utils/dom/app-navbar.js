@@ -9,6 +9,8 @@ $(document).ready(function () {
   if (isAuth) {
     $("#isNotAuth").remove();
     $("#accountState").text("Account");
+    $("#accountState").attr("data-link");
+    $("#accountState").attr("href", "/#account");
     $("#navItemDropdown").append(/*html*/ `
       <li id="logoutBtn"><a class="dropdown-item" href="#">Logout</a></li>
     `);
