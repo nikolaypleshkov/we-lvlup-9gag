@@ -3,12 +3,21 @@ import { commentMeme } from "../features/api/app-service";
 $(document).ready(function () {
   const postId = localStorage.getItem("postId");
   $(document).on("click", "#postButton", async function () {
-    const userComment = $("#userComment").val();
-    const user = JSON.parse(localStorage.getItem("user"));
-    appendComment(user, userComment);
-    await commentMeme(postId, userComment, user)
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+      if(localStorage.getItem("Authenticated")){
+        const userComment = $("#userComment").val();
+        const user = JSON.parse(localStorage.getItem("user"));
+        appendComment(user, userComment);
+        await commentMeme(postId, userComment, user)
+          .then((res) => console.log(res))
+          .catch((error) => console.log(error));
+      }
+      else {
+          alert("You need to be logged in first");
+      }
+  });
+
+  $(document).on("click", "#clearComment", function(){
+    $("#userComment").val("");
   });
 
   function appendComment(user, comment) {
