@@ -9,6 +9,7 @@ import "./utils";
 import Upload from "./views/Upload";
 import Trending from "./views/Trending";
 import Post from "./views/Post";
+import Account from "./views/Account";
 
 $(document).ready(function(){
   $(document).on("click", "#getId", function(){
@@ -49,6 +50,11 @@ $(document).ready(function(){
           path: "#post",
           view: Post,
           needAuth: true
+        },
+        {
+          path: "#account",
+          view: Account,
+          needAuth: true
         }
     ];
 
@@ -82,6 +88,7 @@ $(document).ready(function(){
 
   router();
 });
+
 
  
 
