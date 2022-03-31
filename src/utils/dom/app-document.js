@@ -6,7 +6,7 @@ $(document).ready(async function () {
   $(window).scroll(async function () {
     if ($(this).scrollTop() == $(document).height() - $(window).height()) {
       //TODO: Make call to giphy to fetch memes
-      if(location.hash !== "#post"){
+      if(location.hash !== "#post" && location.hash !== "#account"){
         try {
           const querySnapshot = await getDocs(collection(db, "post"));
           querySnapshot.forEach((doc) => {
@@ -146,7 +146,7 @@ $(document).ready(async function () {
     $("#content").append(/*html*/ `
   <div class="memeCard mt-5" data-eid="${data.id}"> 
           <div class="user-info d-flex"> 
-            <img src="${data.data().createdByUser.photoURL}" height="25px" width="25px" />
+            <img no-referrer src="${data.data().createdByUser.photoURL}" height="25px" width="25px" />
             <p class="owner-info text-muted"> 
               <a href="#user">${data.data().createdByUser.displayName}</a>
               <span>· ${calculateTimeDiff(data.data().createdOn)} min</span>
