@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   updateProfile,
+  FacebookAuthProvider,
 } from "firebase/auth";
 import { app } from "../firebase";
 import $ from "jquery";
@@ -14,18 +15,45 @@ export async function signInWithEmail(email, password) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-
       const token = user.accessToken;
       localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("Authenticated", true);
       localStorage.setItem("token", user.uid);
-      console.log(user);
     })
     .then(async () => {
       location.reload();
     })
     .catch((error) => {
-      console.log(error);
+      const errorMessage = error.message;
+      const errorCode = error.code;
+      if(errorCode == "auth/invalid-email"){
+        $("#authError").remove();
+        $(/*html*/ `
+        <div class="alert alert-danger mt-2" id="authError">
+          <span>Please enter a valid email.</span>
+        </div>`).insertBefore("#signinForm");
+      }
+      if(errorCode == "auth/user-not-found"){
+        $("#authError").remove();
+        $(/*html*/ `
+        <div class="alert alert-danger mt-2" id="authError">
+          <span>User not found.</span>
+        </div>`).insertBefore("#signinForm");
+      }
+      if(errorCode == "auth/wrong-password"){
+        $("#authError").remove();
+        $(/*html*/ `
+        <div class="alert alert-danger mt-2" id="authError">
+          <span>Wrong email or password</span>
+        </div>`).insertBefore("#signinForm");
+      }
+      if(errorCode == "auth/too-many-requests"){
+        $("#authError").remove();
+        $(/*html*/ `
+        <div class="alert alert-danger mt-2" id="authError">
+          <span>Too many attempts, please try again later.</span>
+        </div>`).insertBefore("#signinForm");
+      }
     });
 }
 
@@ -48,9 +76,25 @@ export async function signInWithGoogle() {
       const errorMessage = error.message;
       const email = error.email;
       const credential = GoogleAuthProvider.credentialFromError(error);
+    });
+}
 
-      console.log(error);
-      console.log(errorMessage);
+export async function signInWithFacebook() {
+  const provider = new FacebookAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const user = result.user;
+      const credential = FacebookAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("Authenticated", true);
+      localStorage.setItem("token", user.uid);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = FacebookAuthProvider.credentialFromError(error);
     });
 }
 export async function signUpWithEmail(email, password, displayName) {
@@ -62,11 +106,11 @@ export async function signUpWithEmail(email, password, displayName) {
         photoURL:
           "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png",
       });
-    }).then(() => location.reload())
+    })
+    .then(() => location.reload())
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorMessage);
       $(/*html*/ `
         <div class="alert alert-danger mt-2">
           <span>${errorMessage}</span>
