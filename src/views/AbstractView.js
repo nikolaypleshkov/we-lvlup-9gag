@@ -20,10 +20,10 @@ export default class {
         $("#content").append(/*html*/ `
       <div class="memeCard mt-5" data-eid="${data.id}"> 
           <div class="user-info d-flex"> 
-            <img src="${data.data().createdByUser.photoURL}" height="25px" width="25px" />
+            <img src="${data.data().createdByUser.photoURL}" height="25px" width="25px" style="border-radius: 50%;"  />
             <p class="owner-info text-muted"> 
               <a href="#user" class="text-muted ml-2">${data.data().createdByUser.displayName}</a>
-              <span>· ${this.calculateTimeDiff(data.data().createdOn)} min</span>
+              <span>·</span>
             </p>
           </div> 
             <a class="post-header" data-link href="/#post" id="getId">${data.data().title}</a>
