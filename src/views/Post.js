@@ -89,7 +89,9 @@ export default class extends AbstractView {
             </p>
         </div>
         <div class="comment-list-item"> 
-          <div class="comment-list-item__text">${comment.comment}</div>
+          <div class="comment-list-item__text">
+          <span id="userComment__text">${comment.comment}</span>
+          </div>
           <footer class="comment-list-item__footer"> 
             
         <div class="button-container d-flex mt-2"> 
