@@ -54,7 +54,8 @@ class Navbar extends HTMLElement {
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navItemDropdown">
                                             <li><a class="dropdown-item" href="#" id="accountState">Sign up or Login</a></li>
                                             <li><a class="dropdown-item" data-link href="/#upload">Upload Meme</a></li>
-                                            <li><a class="dropdown-item" href="#">Dark Mode</a></li>
+                                            <li><button class="dropdown-item" id="darkModeBtn">Dark Mode &nbsp;<input class="form-check-input" type="checkbox" value="" id="darkModeCheckbox"></button></li>
+                                           </li>
                                             <li><a class="dropdown-item" href="#">Download 9GAG app</a></li>
                                         </ul> 
                                     </li>  
