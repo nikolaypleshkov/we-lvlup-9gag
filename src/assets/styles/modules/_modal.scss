@@ -24,6 +24,7 @@
     text-align: center;
     height: 53px;
     overflow: hidden;
+    color: var(--light-color);
 }
 
 .social-btn:hover{
@@ -38,6 +39,7 @@
 .modal-content{
     border: 0px !important;
     border-radius: 8px !important;
+    background-color: var(--light-background) !important;
 }
 .modal-header-content{
     text-align: center;
@@ -54,4 +56,10 @@
     line-height: 14px;
     text-align: center;
     color: $light-font-color;
+}
+
+.form-group{
+    input{
+        background-color: var(--light-background) !important;
+    }
 }
