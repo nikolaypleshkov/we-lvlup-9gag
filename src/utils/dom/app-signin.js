@@ -16,10 +16,10 @@ $(document).ready(function () {
   $(password).on("blur", function () {
     //   validatePassword();
   });
-  $(facebookSign).on("click", function(){
+  $(document).on("click", "#facebookSignIn", async function(){
     signInWithFacebook();
   });
-  $(googleSign).on("click", function () {
+  $(document).on("click", "#googleSignIn", async function(){
     signInWithGoogle();
   });
   $(form).on("submit", async function (e) {
