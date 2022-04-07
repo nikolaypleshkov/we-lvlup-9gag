@@ -6,6 +6,7 @@ export default class extends AbstractView{
     constructor(){
         super();
         this.setTitle("7GAG - Home");
+        localStorage.removeItem("postId");
     }
     async getHtml(){
         $("#content").empty();
