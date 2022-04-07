@@ -40,9 +40,6 @@ class Navbar extends HTMLElement {
                                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                         </ul>
                                     </li>
-                                    <li class="nav-item">
-                                        <i class="bi bi-chat-right-fill"></i>
-                                    </li>
                                     <li class="nav-item d-flex" id="isNotAuth">
                                             <button class="btn __btn-secondary" id="signIn">Login</button>
                                             <button class="btn __btn-primary" id="signUp">Sign up</button> 
@@ -52,11 +49,9 @@ class Navbar extends HTMLElement {
                                         ${localStorage.getItem("user") ? `<img class="profile-picture-link" src="${JSON.parse(localStorage.getItem("user")).photoURL}"/>` : "<i class=\"bi bi-chevron-down\"></i>" }
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navItemDropdown">
-                                            <li><a class="dropdown-item" href="#" id="accountState">Sign up or Login</a></li>
-                                            <li><a class="dropdown-item" data-link href="/#upload">Upload Meme</a></li>
+                                            <li><a class="dropdown-item" href="#" id="accountState">7GAG</a></li>
                                             <li><button class="dropdown-item" id="darkModeBtn">Dark Mode &nbsp;<input class="form-check-input" type="checkbox" value="" id="darkModeCheckbox"></button></li>
                                            </li>
-                                            <li><a class="dropdown-item" href="#">Download 9GAG app</a></li>
                                         </ul> 
                                     </li>  
                                 </ul>
