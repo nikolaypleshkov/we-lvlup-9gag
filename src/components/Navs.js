@@ -6,7 +6,6 @@ class Navs extends HTMLElement{
                 <a data-link href="/#home" class="nav-btn selected">Hot</a>
                 <a data-link href="/#trending" class="nav-btn">Trending</a>
                 <a data-link href="/#fresh" class="nav-btn">Fresh</a>
-                <a data-link href="/#top" class="nav-btn">Top</a>
             </div> 
         </nav>
         `;
