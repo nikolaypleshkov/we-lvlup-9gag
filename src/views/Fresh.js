@@ -5,6 +5,7 @@ export default class extends AbstractView{
     constructor(){
         super();
         this.setTitle("7GAG - Fresh Posts");
+        localStorage.removeItem("postId");
     }
 
     async getHtml(){
