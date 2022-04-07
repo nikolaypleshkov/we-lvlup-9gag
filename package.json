@@ -12,7 +12,7 @@
     "build:css": "npm run css:lint && npm run css:scss && npm run css:autoprefixer",
     "build:js": "webpack --mode=production",
     "build:html": "posthtml -c posthtml.json",
-    "start": "run-s build:* watch",
+    "build": "run-s build:* watch",
     "serve": "browser-sync start --server \"dist\" --files \"dist\"",
     "watch:css": "onchange \"src/assets/styles\" -- npm run build:css",
     "watch:js": "onchange \"src/\" -- webpack --mode=development",
@@ -61,6 +61,8 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
+    "@dicebear/avatars": "^4.10.2",
+    "@dicebear/avatars-male-sprites": "^4.10.2",
     "@ls-lint/ls-lint": "^1.11.0",
     "@popperjs/core": "^2.11.2",
     "axios": "^0.26.1",
