@@ -16,6 +16,10 @@ $(document).ready(function(){
     const postId = $(this).parent().attr("data-eid");
     localStorage.setItem("postId", postId);
   });
+  $(document).on("click", "#btnGetId", function(){
+    const postId = $(this).parent().parent().attr("data-eid");
+    localStorage.setItem("postId", postId);
+  });
   $(document).on("click", "#getIdImg", function(){
     const postId = $(this).parent().parent().attr("data-eid");
     localStorage.setItem("postId", postId);
