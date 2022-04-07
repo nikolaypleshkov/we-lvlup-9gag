@@ -49,7 +49,7 @@ export default class {
                   <span class="text-muted">${data.data().dislikes}</span>
                 </div>
                 </button>
-                <a class="btn post-btn d-flex align-items-center" id="commentsBtn" data-link href="/#post" id="getId"> 
+                <a class="btn post-btn d-flex align-items-center" data-link href="/#post" id="btnGetId"> 
                     <i class="bi bi-chat-right-fill"></i>
                     <span class="text-muted">${data.data().comments.length}</span>
                 </a>
