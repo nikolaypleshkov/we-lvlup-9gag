@@ -13,7 +13,7 @@
     "build:js": "webpack --mode=production",
     "build:html": "posthtml -c posthtml.json",
     "build": "run-s build:* watch",
-    "serve": "browser-sync start --server \"dist\" --files \"dist\"",
+    "serve": "run-s build:*",
     "watch:css": "onchange \"src/assets/styles\" -- npm run build:css",
     "watch:js": "onchange \"src/\" -- webpack --mode=development",
     "watch:html": "onchange \"src/\" -- npm run build:html",
