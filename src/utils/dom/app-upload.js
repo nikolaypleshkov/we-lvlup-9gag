@@ -8,7 +8,6 @@ $(document).ready(async function () {
   $("#fileInput").on("change", function () {
     const file = $("#fileInput").prop("files")[0];
     const image = URL.createObjectURL(file);
-    // console.log(image);
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
@@ -41,10 +40,7 @@ $(document).ready(async function () {
     const postTitle = $("#postTitle").val();
     const postDescription = $("#postDescription").val();
     let currentDocId = "";
-
-    console.log("user");
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
     try {
       const docRef = await addDoc(collection(db, "post"), {
         img: base64Image,
