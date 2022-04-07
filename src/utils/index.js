@@ -6,4 +6,5 @@ import "./dom/app-signin";
 import "./dom/app-document";
 import "./dom/app-upload";
 import "./dom/app-posts";
+import "./dom/app-dark-theme";
 import "./features/firebase";
