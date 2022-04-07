@@ -28,42 +28,21 @@ class Navbar extends HTMLElement {
                     <li> 
                         <h6>&nbsp;&nbsp;&nbsp;7GAG</h6>
                     </li>
-                    <li class="nav-item nav-sidebar">
-                        <div> 
-                            <i class="bi bi-house-fill"></i>
-                            <a href="#">Hot</a>
-                        </div>   
-                        <a class="nav-link" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">       
-                            <i class="bi bi-three-dots"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="h-none"><a class="dropdown-item h-none" href="#">Top Posts</a></li>
-                            <li><a class="dropdown-item h-none" href="#">Most Recent</a></li>
-                        </ul>
+                    <li class="nav-item nav-item-drawer">
+                        <i class="bi bi-house-fill"></i>
+                        <a href="#">Hot</a>
                     </li>
-                    <li class="nav-item"> 
+                    <li class="nav-item nav-item-drawer"> 
                         <i class="bi bi-graph-up-arrow"></i>
-                        <a href="/#trending" data-link>Trending</a>
+                        <a data-link href="/#trending">Trending</a>
                     </li>
-                    <li class="nav-item"> 
+                    <li class="nav-item nav-item-drawer"> 
                         <i class="bi bi-clock"></i>
-                        <a href="/#fresh" data-link>Fresh</a>
+                        <a data-link href="/#fresh">Fresh</a>
                     </li>
-                    <li class="nav-item"> 
-                        <i class="bi bi-bar-chart-line-fill"></i>
-                        <a href="#">Top</a>
-                    </li>
-                    <li class="nav-item nav-sidebar"> 
-                        <div> 
-                            <i class="bi bi-geo-alt-fill"></i>
-                            <a href="#">Bulgaria 🇧🇬</a>
-                        </div>
-                        <a class="nav-link" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">             
-                            <i class="bi bi-three-dots"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Sign up or Login</a></li>
-                        </ul>
+                    <li class="nav-item nav-item-drawer"> 
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <a href="#">Bulgaria 🇧🇬</a>
                     </li>
                 </ul>
             </div>
