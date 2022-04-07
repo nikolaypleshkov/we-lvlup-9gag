@@ -33,12 +33,19 @@ export async function postMeme(data) {
 async function viewMeme(id) {}
 async function upvoteMeme(id) {}
 async function downvoteMeme(id) {}
-export async function commentMeme(postId, comment, user) {
+
+export async function commentMeme(postId, comment, user, commentUUID) {
   const commentsRef = doc(db, "post", postId);
   const docRef = await getDoc(commentsRef);
   const comments = docRef.get("comments");
+  const uuid = commentUUID;
   comments.push({
+    uuid: uuid,
     user: user,
+    likesID: [],
+    likes: 0,
+    dislikesID: [],
+    dislikes: 0,
     comment: comment
   });
 
@@ -58,3 +65,5 @@ export async function freshMemes(){
 
   return docSnapshot;
 }
+
+
