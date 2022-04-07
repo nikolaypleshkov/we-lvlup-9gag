@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import { app } from "../firebase";
 import $ from "jquery";
+import axios from "axios";
 const auth = getAuth(app);
 export async function signInWithEmail(email, password) {
   signInWithEmailAndPassword(auth, email, password)
@@ -26,28 +27,28 @@ export async function signInWithEmail(email, password) {
     .catch((error) => {
       const errorMessage = error.message;
       const errorCode = error.code;
-      if(errorCode == "auth/invalid-email"){
+      if (errorCode == "auth/invalid-email") {
         $("#authError").remove();
         $(/*html*/ `
         <div class="alert alert-danger mt-2" id="authError">
           <span>Please enter a valid email.</span>
         </div>`).insertBefore("#signinForm");
       }
-      if(errorCode == "auth/user-not-found"){
+      if (errorCode == "auth/user-not-found") {
         $("#authError").remove();
         $(/*html*/ `
         <div class="alert alert-danger mt-2" id="authError">
           <span>User not found.</span>
         </div>`).insertBefore("#signinForm");
       }
-      if(errorCode == "auth/wrong-password"){
+      if (errorCode == "auth/wrong-password") {
         $("#authError").remove();
         $(/*html*/ `
         <div class="alert alert-danger mt-2" id="authError">
           <span>Wrong email or password</span>
         </div>`).insertBefore("#signinForm");
       }
-      if(errorCode == "auth/too-many-requests"){
+      if (errorCode == "auth/too-many-requests") {
         $("#authError").remove();
         $(/*html*/ `
         <div class="alert alert-danger mt-2" id="authError">
@@ -103,11 +104,22 @@ export async function signUpWithEmail(email, password, displayName) {
       const user = userCredential.user;
       updateProfile(user, {
         displayName: displayName,
-        photoURL:
-          "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png",
+        photoURL: `https://avatars.dicebear.com/api/gridy/${email}.svg`,
       });
     })
-    .then(() => location.reload())
+    .then(() => {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          const token = user.accessToken;
+          localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("Authenticated", true);
+          localStorage.setItem("token", user.uid);
+        })
+        .then(async () => {
+          location.reload();
+        });
+    })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
