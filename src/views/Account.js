@@ -7,6 +7,7 @@ export default class extends AbstractView{
         super();
         this.setTitle("7GAG - User Info");
         this.id = localStorage.getItem("token");
+        localStorage.removeItem("postId");
     }
 
     async getHtml(){
@@ -14,10 +15,14 @@ export default class extends AbstractView{
             location.hash = "#home";
         }
         else {
-            console.log(this.id);
             $("#content").empty();
+            const user = JSON.parse(localStorage.getItem("user"));
             $("#content").html(/*html*/`
-                <h1>Your Posts</h1>
+                <section style="display: flex; justify-content: center; align-items:center; flex-direction: column;"> 
+                    <h1>Hello, ${user.displayName}</h1>
+                    <img src="${user.photoURL}" height="100px" width="100px" style="border-radius: 50%;">
+                    <h1>Your Posts</h1>
+                </section>
             `);
             try{
                 const querySnapshot = await getDocs(collection(db, "post"));
