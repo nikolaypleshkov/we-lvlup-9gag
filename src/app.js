@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 import "regenerator-runtime/runtime";
 import "./components/Components";
-import "./assets/vendors/giftplayer/jquery.gifplayer";
 import Home from "./views/Home";
 // import Post from "./views/Post";
 import Fresh from "./views/Fresh";

@@ -13,7 +13,7 @@
   --dark-background: #26282c;
   --dark-color: #fff;
 }
-html[data-theme="dark"] {
+body[data-theme="dark"] {
   --light-background: #26282c;
   --light-color: #fff;
   --light-border-nav: #fff;
@@ -27,7 +27,12 @@ body {
   height: 100%;
   background: var(--light-background);
 }
-
+#app {
+  display: grid;
+  place-items: center;
+  padding-top: 5%;
+  background: var(--light-background);
+}
 h2,
 h1,
 h3,
