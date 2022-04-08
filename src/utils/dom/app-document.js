@@ -3,7 +3,7 @@ import $ from "jquery";
 import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
 import { db } from "../features/firebase";
 $(document).ready(async function () {
-  $("html").attr("data-theme", localStorage.getItem("theme"));
+  $("body").attr("data-theme", localStorage.getItem("theme"));
   if (localStorage.getItem("theme") == "dark") {
     $("#darkModeCheckbox").attr("checked", "checked");
   }
