@@ -1,4 +1,5 @@
 # 9GAG Clone
+This project is a Single-Page Application (SPA) clone of 9GAG, created during my React internship. The primary goal was to deepen my understanding of how SPAs function, using plain JavaScript and best practices in web development. While the project is built with little help from jQuery, the focus was on learning the core principles of SPA architecture, including dynamic content loading, state management, and client-side rendering.
 
 * [Task](#task)
 * [About the Project](#about-the-project)
